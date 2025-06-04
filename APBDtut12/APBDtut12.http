@@ -3,7 +3,20 @@
 //GET {{APBDtut12_HostAddress}}/api/Trips?page=1&pageSize=13
 //Accept: application/json
 
-DELETE {{APBDtut12_HostAddress}}/api/Clients/2
-Accept: application/json
+//DELETE {{APBDtut12_HostAddress}}/api/Clients/2
+//Accept: application/json
+
+POST {{APBDtut12_HostAddress}}/api/Trips/2/clients
+Content-Type: application/json
+
+{
+    "FirstName": "John",
+    "LastName": "Doe",
+    "Email": "doe@wp.pl",
+    "Telephone": "543-323-542",
+    "Pesel": "91040294554",
+    "IdTrip": 2,
+    "PaymentDate": "2021-06-04"
+}
 
 ###

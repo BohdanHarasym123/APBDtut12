@@ -5,16 +5,16 @@ namespace APBDtut12.Services;
 
 public class ClientService : IClientService
 {
-    private readonly MasterContext _dbContext;
+    private readonly MasterContext _context;
 
-    public ClientService(MasterContext dbContext)
+    public ClientService(MasterContext context)
     {
-        _dbContext = dbContext;
+        _context = context;
     }
 
     public async Task<bool> DeleteClientAsync(int clientId)
     {
-        var client = await _dbContext.Clients
+        var client = await _context.Clients
             .Include(c => c.ClientTrips)
             .FirstOrDefaultAsync(c => c.IdClient == clientId);
 
@@ -23,8 +23,8 @@ public class ClientService : IClientService
 
         if (client.ClientTrips.Any()) return false;
         
-        _dbContext.Clients.Remove(client);
-        await _dbContext.SaveChangesAsync();
+        _context.Clients.Remove(client);
+        await _context.SaveChangesAsync();
         return true;
     }
 }
