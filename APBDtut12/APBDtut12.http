@@ -1,6 +1,9 @@
 @APBDtut12_HostAddress = http://localhost:5056
 
-GET {{APBDtut12_HostAddress}}/api/Trips?page=1&pageSize=13
+//GET {{APBDtut12_HostAddress}}/api/Trips?page=1&pageSize=13
+//Accept: application/json
+
+DELETE {{APBDtut12_HostAddress}}/api/Clients/2
 Accept: application/json
 
 ###
